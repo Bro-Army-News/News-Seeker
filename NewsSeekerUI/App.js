@@ -6,5 +6,5 @@ import SignUp from './app/screens/SignUp';
 import Login from './app/screens/Login';
 
 export default function App() {
-  return <Login/>
+  return <SignUp/>
 }

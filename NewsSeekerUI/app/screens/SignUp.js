@@ -88,18 +88,15 @@ const styles = StyleSheet.create({
     },
 
     ScrollView:{
-        top: 0, 
-        left: 35, 
-        bottom: 0, 
-        right: 0},
+        margin:'7%',
+    },
         
     input:{
         borderColor:'black',
         borderWidth:2,
         padding:5,
-        // width:'100%',
         marginBottom:40,
-        marginRight:'17%',
+        marginRight:'15%',
     },
     submit:{
         marginHorizontal:30,
