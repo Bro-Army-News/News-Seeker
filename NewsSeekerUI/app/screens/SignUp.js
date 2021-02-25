@@ -81,6 +81,7 @@ const styles = StyleSheet.create({
     containerHeader:{
         textAlign:'center',
         marginTop:20,
+        marginBottom:20,
         fontWeight: 'bold',
         fontSize:28,
         color:'green',
@@ -96,8 +97,9 @@ const styles = StyleSheet.create({
         borderColor:'black',
         borderWidth:2,
         padding:5,
-        width:350,
+        // width:'100%',
         marginBottom:40,
+        marginRight:'17%',
     },
     submit:{
         marginHorizontal:30,
