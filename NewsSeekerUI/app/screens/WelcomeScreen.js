@@ -1,7 +1,14 @@
 import React from 'react';
 import { ImageBackground, StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 
-function WelcomeScreen(props) {
+const WelcomeScreen = () => {
+    const goToLogin = () => {
+        Actions.login()
+    }
+    const goToSignUp = () => {
+        Actions.signup()
+    }
     return (
         <ImageBackground 
         style={styles.background}
@@ -13,17 +20,17 @@ function WelcomeScreen(props) {
 
             <View style={styles.loginArea}>
                 <Text style={styles.welcomeHeading}>Welcome To News Seeker</Text>
-                    <TouchableOpacity style={[styles.submit, styles.submitColor1]}>
+                    <TouchableOpacity style={[styles.submit, styles.submitColor1]} onPress = {goToLogin}>
                         <Text style={styles.submitText}>LOGIN HERE</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={[styles.submit, styles.submitColor2]}>
+                    <TouchableOpacity style={[styles.submit, styles.submitColor2]} onPress = {goToSignUp}>
                         <Text style={styles.submitText}>SIGN UP HERE</Text>
                     </TouchableOpacity>
             </View>
-
         </ImageBackground>
     );
 }
+
 const styles = StyleSheet.create({
     background:{
         flex:1,

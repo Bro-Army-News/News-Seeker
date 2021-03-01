@@ -1,7 +1,11 @@
 import React from 'react';
 import { Image, View, StyleSheet,Text, TextInput, TouchableOpacity, ScrollView} from 'react-native';
+import { Actions } from 'react-native-router-flux';
 
-function Login(props) {
+const Login = () => {
+    const goToSignUp = () => {
+        Actions.signup()
+    }
     return (
         <View style={styles.body}>
             <View style={styles.header}>
@@ -9,7 +13,7 @@ function Login(props) {
                 <Text style={styles.headerText}>News Seeker</Text>
             </View>
             <View style={styles.container}>
-                <Text style={styles.containerHeader}>LOGIN</Text>
+                <Text style={styles.containerHeader}>LOG IN</Text>
                 <ScrollView  style={styles.containerLogin}>
                     <TextInput 
                     placeholder="UserName"
@@ -18,10 +22,10 @@ function Login(props) {
                     placeholder="Password"
                     style={styles.input}/>
                     <TouchableOpacity style={styles.submit}>
-                        <Text style={styles.submitText}>SIGN UP HERE</Text>
+                        <Text style={styles.submitText}>LOG IN</Text>
                     </TouchableOpacity>
                     <Text style={styles.links}>Forgot Password?</Text>
-                    <Text style={styles.links}>Not a Memeber yet? Sign Up Here</Text>
+                    <Text style={styles.links} onPress = {goToSignUp}>Not a Memeber yet? Sign Up Here</Text>
                     <View
                     style={{
                         borderBottomColor: 'black',

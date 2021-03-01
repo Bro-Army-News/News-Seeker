@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, StyleSheet, StatusBar, TextInput} from 'react-native';
+import { Actions } from 'react-native-router-flux';
 
 const Search = () => {
     return(

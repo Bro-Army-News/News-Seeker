@@ -1,11 +1,20 @@
+import React, { Component } from 'react';
+import { AppRegistry, Settings, StyleSheet, Text, View } from 'react-native';
+import Routes from './app/Routes.js'
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import WelcomeScreen from './app/screens/WelcomeScreen';
-import SignUp from './app/screens/SignUp';
-import Login from './app/screens/Login';
-import Search from './app/screens/Search';
+import WelcomeScreen from './app/screens/WelcomeScreen.js';
+import SignUp from './app/screens/SignUp.js';
+import Login from './app/screens/Login.js';
+import Search from './app/screens/Search.js';
+import SettingsMain from './app/screens/SettingsMain.js';
 
-export default function App() {
-  return <Search/>
+class reactNewsApp extends Component {
+  render() {
+     return (
+        <Routes />
+     )
+  }
 }
+
+export default reactNewsApp
+AppRegistry.registerComponent('reactNewsApp', () => reactNewsApp)

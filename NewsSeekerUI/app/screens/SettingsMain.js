@@ -1,5 +1,6 @@
 import React from 'react';
 import SVG,{Path, View,StyleSheet,Text, StatusBar} from 'react-native';
+import { Actions } from 'react-native-router-flux';
 
 function SettingsMain(props) {
    

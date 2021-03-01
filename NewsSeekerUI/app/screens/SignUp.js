@@ -1,7 +1,11 @@
 import React from 'react';
 import { Image, ScrollView, View, StyleSheet,Text, TextInput, TouchableOpacity, SafeAreaView } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 
-function Login(props) {
+const SignUp = () => {
+    const goToLogin = () => {
+        Actions.login()
+    }
     return (
         <View style={styles.body}>
             <View style={styles.header}>
@@ -30,7 +34,7 @@ function Login(props) {
                     <TextInput 
                     placeholder="Re-Enter Password"
                     style={styles.input}/>
-                    <TouchableOpacity style={styles.submit}>
+                    <TouchableOpacity style={styles.submit} onPress = {goToLogin}>
                         <Text style={styles.submitText}>SIGN UP HERE</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={[styles.submit, styles.submitColor1]}>
@@ -126,4 +130,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default Login;
+export default SignUp;
