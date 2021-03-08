@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
         borderWidth:2,
         padding:5,
         marginBottom:40,
-        marginRight:'15%',
+        marginRight:'2%',
     },
     submit:{
         marginHorizontal:30,
