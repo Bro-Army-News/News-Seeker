@@ -1,107 +1,64 @@
 import React from 'react';
-import { Button, StyleSheet, Text, View } from 'react-native';
-//import {navigationContainer} from '@react-navigation/native';
-//import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-//import {Ionicons} from '@expo/vector-icons';
-import Search from './Search';
-import SettingsMain from './SettingsMain';
+import { StyleSheet, Text, View } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 
+const HomeScreen = () => {
+    const goToSearch = () => {
+        Actions.search()
+    }
+    const goToDiscussion = () => {
+        Actions.discuss()
+    }
+    const goToSettings = () => {
+        Actions.settings()
+    }
+    return (
+        <View style={style.body}>
+            <Text style={style.title}>News Seeker</Text>
+                <View style={style.contentWrapper}>
+                    <Text style={style.content} onPress = {goToSearch}>Search News</Text>
+                    <Text style={style.content} onPress = {goToDiscussion}>Discuss News</Text>
+                    <Text style={style.contentSettings} onPress = {goToSettings}>Settings</Text>
+                </View>
+        </View>
+    );
+};
 
-function HomeScreen() {
-return (
-<View style={styles.container}>
-<View style={styles.header}>
-<Text style={styles.title}>News Seeker</Text>
-</View>
-<View style={styles.content}></View>
-{/*<NavigationContainer>
-<Tab.Navigator
-screenOptions={({ route }) => ({
-tabBarIcon: ({ focused, color, size }) => {
-if (route.name === 'Home') {
-return (
-<Ionicons
-name={
-focused
-? 'ios-information-circle'
-: 'ios-information-circle-outline'
-}
-size={size}
-color={color}
-/>
-);
-} else if (route.name === 'Settings') {
-return (
-<Ionicons
-name={focused ? 'ios-list-box' : 'ios-list'}
-size={size}
-color={color}
-/>
-);
-}
-},
-})}
-tabBarOptions={{
-activeTintColor: 'tomato',
-inactiveTintColor: 'gray',
-}}
->
-<Tab.Screen name="Home" component={HomeScreen} options={{ tabBarBadge: 3 }} />
-<Tab.Screen name="Settings" component={SettingsMain} />
-</Tab.Navigator>
-</NavigationContainer>/*}
-{/*<Button
-title="Home"
-onPress={
-() => this.props.navigation.navigate("HomeScreen")
-}>
-</Button>
-<Button
-title="Search"
-onPress={
-() => this.props.navigation.navigate("Search")
-}>
-</Button>
-<Button
-title="Settings"
-onPress={
-() => this.props.navigation.navigate("SettingsMain")
-}>
-</Button>*/}
-{/*<View style={styles.tabs_container}>
-<IconButton icon="" />
-<IconButton icon="" />
-<IconButton icon="" />
-</View>
-<View style={{position: 'absolute', left: 0, right: 0, bottom: 0}}><Text>My fixed footer</Text></View>*/}
-</View>
-);}
-
-const styles = StyleSheet.create({
-    container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    },
-    header: {
-    height: 100,
-    paddingTop: 38,
-    backgroundColor: 'black'
+const style = StyleSheet.create({
+    body: {
+        flex: 1,
+        backgroundColor: '#5C5C5C',
     },
     title: {
-    textAlign: 'center',
-    color: '#fff',
-    fontSize: 30,
-    fontWeight: 'bold'
+        color: '#fff',
+        fontSize: 50,
+        alignSelf: 'center',
+    },
+    contentWrapper: {
+        flex: 1,
+        padding: 50,
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+    },
+    content: {
+        backgroundColor: '#fff',
+        width: 150,
+        height: 150,
+        margin: 2,
+        color: 'black',
+        lineHeight: 150,
+        textAlign: 'center',
+        fontSize: 30,
+    },
+    contentSettings: {
+        backgroundColor: '#fff',
+        width: 300,
+        margin: 2,
+        color: 'black',
+        lineHeight: 40,
+        textAlign: 'center',
+        fontSize: 20,
     }
-    });
-    export default HomeScreen;
-/*
-{const Routes = () => (
-<Router>
-<Scene key = "root">
-<Scene key = "home" component = {HomeScreen} title = "Home" initial = {true} />
-<Scene key = "search" component = {Search} title = "Search" />
-<Scene key = "setting" component = {SettingsMain} title = "Setting" />
-</Scene>
-</Router>
-)}*/
+})
+    
+export default HomeScreen;

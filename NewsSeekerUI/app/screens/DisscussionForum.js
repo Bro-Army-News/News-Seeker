@@ -1,7 +1,8 @@
 import React from 'react';
 import { View,StyleSheet,Text,TouchableOpacity,TextInput,Image } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 
-function DisscussionForum(props) {
+const DisscussionForum = () => {
     return (
         <View style={styles.mainBox}>
 
@@ -15,7 +16,7 @@ function DisscussionForum(props) {
             </View>
 
             <View style={styles.commentSection}>
-              <TextInput multiline style={styles.commentBox} placeholder ="Write your comment here ! "/>
+              <TextInput multiline style={styles.commentBox} placeholder ="Write your comment here!"/>
             </View>
 
             <TouchableOpacity style={[styles.submit]}>
