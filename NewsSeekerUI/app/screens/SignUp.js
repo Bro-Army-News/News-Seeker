@@ -107,12 +107,11 @@ const styles = StyleSheet.create({
         paddingTop:10,
         paddingBottom:10,
         borderRadius:30,
-        marginRight:100,
+        marginRight:'10%',
         backgroundColor:'mediumseagreen',
     },
     submitColor1:{
-        marginTop:35,
-        marginLeft:35,
+        marginTop:25,
         backgroundColor:'tomato',
     },
     submitColor2:{

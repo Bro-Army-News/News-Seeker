@@ -3,21 +3,15 @@ import { Router, Scene } from 'react-native-router-flux'
 import WelcomeScreen from './screens/WelcomeScreen';
 import SignUp from './screens/SignUp.js';
 import Login from './screens/Login.js';
-import Search from './screens/Search.js';
-import SettingsMain from './screens/SettingsMain.js';
-import DisscussionForum from './screens/DisscussionForum.js';
-import HomeScreen from './screens/HomeScreen.js';
+import Tabs from './TabRoutes';
 
 const Routes = () => (
-   <Router>
+   <Router >
       <Scene key = "root">
-         <Scene key = "welcome" component = {WelcomeScreen} title = "Welcome" />
-         <Scene key = "signup" component = {SignUp} title = "SignUp" />
-         <Scene key = "login" component = {Login} title = "Login" />
-         <Scene key = "search" component = {Search} title = "Search" />
-         <Scene key = "home" component = {HomeScreen} title = "Home" initial = {true} />
-         <Scene key = "discuss" component = {DisscussionForum} title = "DisscussionForum" />         
-         <Scene key = "settings" component = {SettingsMain} title = "Settings" />
+         <Scene key = "welcome" component = {WelcomeScreen} title = "Welcome" initial = {true} headerShown = {false}/>
+         <Scene key = "signup" component = {SignUp} title = "SignUp" headerShown = {false}/>
+         <Scene key = "login" component = {Login} title = "Login" headerShown = {false}/>
+         <Scene key = "home" component = {Tabs} title = "NewsSeeker" headerShown = {false}/>
       </Scene>
    </Router>
 )

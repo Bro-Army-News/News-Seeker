@@ -4,25 +4,22 @@ import { Actions } from 'react-native-router-flux';
 
 const DisscussionForum = () => {
     return (
-        <View style={styles.mainBox}>
-
-            <View style={styles.header}>
-                  <Image style={styles.headerLogo} source={require('../assets/Logo.jpg')}/>
+      <View style={styles.primaryContainer}>
+        <View style={styles.header}>
+                <Image style={styles.headerLogo} source={require('../assets/Logo.jpg')}/>
                 <Text style={styles.headerText}>News Seeker</Text>
-            </View>
-
-            <View style={styles.heading} >
-                <Text style={styles.texts}> Discussion Forum</Text>
-            </View>
-
-            <View style={styles.commentSection}>
-              <TextInput multiline style={styles.commentBox} placeholder ="Write your comment here!"/>
-            </View>
-
-            <TouchableOpacity style={[styles.submit]}>
-                        <Text style={styles.submitText}>Submit</Text>
-            </TouchableOpacity>
         </View>
+        <View style={styles.heading} >
+            <Text style={styles.texts}> Discussion Forum</Text>
+        </View>
+        <View style={styles.commentSection}>
+          <TextInput multiline style={styles.commentBox} placeholder ="Write your ideas here ! "/>
+        </View>
+
+        <TouchableOpacity style={[styles.submit]}>
+                    <Text style={styles.submitText}>Submit</Text>
+        </TouchableOpacity>
+      </View>
     );
 }
 
@@ -32,26 +29,25 @@ const styles = StyleSheet.create({
         flex:1,
         paddingTop: "10%"
       },
-    
-      header:{
+    header:{
         flexDirection:'row',
-        left:15,
+        backgroundColor:'#e7e6e1',
+        padding:10,
     },
-    
     headerLogo:{
-        width:60,
-        height:60,
+        width:30,
+        height:30,
         borderRadius:10,
+        left:120,
+
     },
-    
     headerText:{
         fontStyle:'italic',
         fontWeight: 'bold',
-        color:'#535c68',
-        fontSize:40,
+        color:'black',
+        fontSize:20,
         top:2,
-        left:20,
-        backgroundColor: "#f7f1e3"
+        left:140,
     },
     
     heading:{

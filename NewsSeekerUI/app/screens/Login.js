@@ -6,6 +6,9 @@ const Login = () => {
     const goToSignUp = () => {
         Actions.signup()
     }
+    const goToHome = () => {
+        Actions.home()
+    }
     return (
         <View style={styles.body}>
             <View style={styles.header}>
@@ -21,7 +24,7 @@ const Login = () => {
                     <TextInput 
                     placeholder="Password"
                     style={styles.input}/>
-                    <TouchableOpacity style={styles.submit}>
+                    <TouchableOpacity style={styles.submit} onPress = {goToHome}>
                         <Text style={styles.submitText}>LOG IN</Text>
                     </TouchableOpacity>
                     <Text style={styles.links}>Forgot Password?</Text>
