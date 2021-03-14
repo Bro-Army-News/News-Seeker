@@ -1,13 +1,10 @@
 import React from 'react';
-import { Image, View, StyleSheet,Text, TextInput, TouchableOpacity, ScrollView} from 'react-native';
+import { Image, ScrollView, View, StyleSheet,Text, TextInput, TouchableOpacity, SafeAreaView } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
-const Login = () => {
-    const goToSignUp = () => {
-        Actions.signup()
-    }
-    const goToHome = () => {
-        Actions.home()
+const SignUp = () => {
+    const goToLogin = () => {
+        Actions.login()
     }
     return (
         <View style={styles.body}>
@@ -15,37 +12,44 @@ const Login = () => {
                 <Image style={styles.headerLogo} source={require('../assets/Logo.jpg')}/>
                 <Text style={styles.headerText}>News Seeker</Text>
             </View>
-            <View style={styles.container}>
-                <Text style={styles.containerHeader}>LOG IN</Text>
-                <ScrollView  style={styles.containerLogin}>
+            <SafeAreaView style={styles.container}>
+                <Text style={styles.containerHeader}>SignUp</Text>
+                <ScrollView style={styles.ScrollView}>
+                
                     <TextInput 
                     placeholder="UserName"
                     style={styles.input}/>
                     <TextInput 
+                    placeholder="Email"
+                    style={styles.input}/>
+                    <TextInput 
+                    placeholder="Date of Birth"
+                    style={styles.input}/>
+                    <TextInput 
+                    placeholder="Country"
+                    style={styles.input}/>
+                    <TextInput 
                     placeholder="Password"
                     style={styles.input}/>
-                    <TouchableOpacity style={styles.submit} onPress = {goToHome}>
-                        <Text style={styles.submitText}>LOG IN</Text>
+                    <TextInput 
+                    placeholder="Re-Enter Password"
+                    style={styles.input}/>
+                    <TouchableOpacity style={styles.submit} onPress = {goToLogin}>
+                        <Text style={styles.submitText}>SIGN UP HERE</Text>
                     </TouchableOpacity>
-                    <Text style={styles.links}>Forgot Password?</Text>
-                    <Text style={styles.links} onPress = {goToSignUp}>Not a Memeber yet? Sign Up Here</Text>
-                    <View
-                    style={{
-                        borderBottomColor: 'black',
-                        borderBottomWidth: 1,
-                        marginTop:15,
-                    }}/>
                     <TouchableOpacity style={[styles.submit, styles.submitColor1]}>
                         <Text style={styles.submitText}>SIGN UP WITH EMAIL</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={[styles.submit, styles.submitColor2]}>
                         <Text style={styles.submitText}>SIGN UP WITH FACEBOOK</Text>
                     </TouchableOpacity>
-                </ScrollView >
-            </View>
+                </ScrollView>    
+            </SafeAreaView>
         </View>
     );
 }
+
+
 
 const styles = StyleSheet.create({
     body:{
@@ -70,7 +74,6 @@ const styles = StyleSheet.create({
         fontSize:40,
         top:2,
         left:20,
-        marginBottom:'5%',
     },
     container:{
         width:'100%',
@@ -82,28 +85,33 @@ const styles = StyleSheet.create({
     containerHeader:{
         textAlign:'center',
         marginTop:20,
+        marginBottom:20,
         fontWeight: 'bold',
         fontSize:28,
         color:'green',
     },
-    containerLogin:{
+
+    ScrollView:{
         margin:'7%',
     },
+        
     input:{
         borderColor:'black',
         borderWidth:2,
         padding:5,
-        marginBottom:'15%',
+        marginBottom:40,
+        marginRight:'2%',
     },
     submit:{
         marginHorizontal:30,
         paddingTop:10,
         paddingBottom:10,
         borderRadius:30,
+        marginRight:'10%',
         backgroundColor:'mediumseagreen',
     },
     submitColor1:{
-        marginTop:35,
+        marginTop:25,
         backgroundColor:'tomato',
     },
     submitColor2:{
@@ -121,4 +129,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default Login;
+export default SignUp;
