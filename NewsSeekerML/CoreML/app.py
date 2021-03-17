@@ -5,8 +5,9 @@ import string
 import pandas as pd
 from flask import Flask
 from flask import request
-from sklearn.ensemble import GradientBoostingClassifier
+# from sklearn.ensemble import GradientBoostingClassifier
 from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import train_test_split
 from flask import Response
 
@@ -14,16 +15,13 @@ from flask import Response
 
 app = Flask(__name__)
 
-
 @app.route("/")
 def home():
     return 'Hello, World!'
 
-
 @app.route("/hello")
 def test():
     return 'Hello'
-
 
 @app.route("/api/v1", methods=['GET', 'POST'])
 def api():
@@ -64,10 +62,10 @@ def api():
 
     vectorization = TfidfVectorizer()
     xv_train = vectorization.fit_transform(x_train)
-    xv_test = vectorization.transform(x_test)
+    # xv_test = vectorization.transform(x_test)
 
-    GBC = GradientBoostingClassifier(random_state=0)
-    GBC.fit(xv_train, y_train)
+    DT = DecisionTreeClassifier()
+    DT.fit(xv_train, y_train)
 
     def output_lable(n):
         if n == 0:
@@ -82,10 +80,10 @@ def api():
         new_def_test["text"] = new_def_test["text"].apply(drop_text)
         new_x_test = new_def_test["text"]
         new_xv_test = vectorization.transform(new_x_test)
-        pred_GBC = GBC.predict(new_xv_test)
+        pred_DT = DT.predict(new_xv_test)
 
         # return print("\n \nGBC Prediction: {} ".format(output_lable(pred_GBC[0])))
-        return output_lable(pred_GBC[0])
+        return output_lable(pred_DT[0])
     result = manual_testing(data)
     return Response(status=200, response=json.dumps({"result": result}), mimetype='application/json')
 
