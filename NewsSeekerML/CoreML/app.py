@@ -10,6 +10,10 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import train_test_split
 from flask import Response
+<<<<<<< Updated upstream
+=======
+from time import sleep
+>>>>>>> Stashed changes
 
 # from search import manual_testing
 
@@ -19,9 +23,16 @@ app = Flask(__name__)
 def home():
     return 'Hello, World!'
 
+<<<<<<< Updated upstream
 @app.route("/hello")
 def test():
     return 'Hello'
+=======
+@app.route("/checkcon")
+def test():
+    sleep(3.0)  # Time in seconds
+    return 'Connection Successful!'
+>>>>>>> Stashed changes
 
 @app.route("/api/v1", methods=['GET', 'POST'])
 def api():
