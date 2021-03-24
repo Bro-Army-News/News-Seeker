@@ -1,7 +1,6 @@
 import json
 import re
 import string
-
 import pandas as pd
 from flask import Flask
 from flask import request
@@ -10,7 +9,8 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import train_test_split
 from flask import Response
-from time import sleep
+from flask_pymongo import PyMongo
+from pymongo import MongoClient
 
 # from search import manual_testing
 
@@ -20,25 +20,22 @@ app = Flask(__name__)
 def home():
     return 'Hello, World!'
 
-@app.route("/checkcon")
+@app.route("/hello")
 def test():
-    sleep(3.0)  # Time in seconds
-    return 'Connection Successful!'
+    return 'Hello'
 
 @app.route("/api/v1", methods=['GET', 'POST'])
 def api():
     data = request.json["value"]
-
     print(data)
-    df_fake = pd.read_csv("Fake.csv")
-    df_true = pd.read_csv("True.csv")
 
-    df_fake["class"] = 0
-    df_true["class"] = 1
+    cluster = MongoClient("mongodb://localhost:27017/NewsSeeker")
+    db = cluster["NewsSeeker"]
+    collection = db["MergedNews"]
 
-    df_marge = pd.concat([df_fake, df_true], axis=0)
+    df_merge = pd.DataFrame((collection.find()))
 
-    df = df_marge.drop(["title", "subject", "date"], axis=1)
+    df = df_merge.drop(["title", "subject", "date"], axis=1)
 
     df.isnull().sum()
 
@@ -85,6 +82,7 @@ def api():
         pred_DT = DT.predict(new_xv_test)
 
         # return print("\n \nGBC Prediction: {} ".format(output_lable(pred_GBC[0])))
+
         return output_lable(pred_DT[0])
     result = manual_testing(data)
     return Response(status=200, response=json.dumps({"result": result}), mimetype='application/json')
