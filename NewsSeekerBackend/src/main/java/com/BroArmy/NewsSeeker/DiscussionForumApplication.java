@@ -1,13 +1,13 @@
-package com.example.demo;
+package com.BroArmy.NewsSeeker;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DemoApplication {
+public class DiscussionForumApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
+		SpringApplication.run(DiscussionForumApplication.class, args);
 	}
 
 }
