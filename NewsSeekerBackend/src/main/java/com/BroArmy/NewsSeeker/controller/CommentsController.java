@@ -3,6 +3,8 @@ package com.BroArmy.NewsSeeker.controller;
 import com.BroArmy.NewsSeeker.model.Comments;
 import com.BroArmy.NewsSeeker.repository.CommentsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.web.bind.annotation.*;
 import com.BroArmy.NewsSeeker.model.Comments.*;
 
@@ -18,8 +20,11 @@ public class CommentsController {
 
     @GetMapping(value = "/all")
     public List<Comments> getAllComments(){
-       return commentsRepository.findAll();
+
+        return commentsRepository.findByOrderByDateTimeValDesc();
+
     }
+
     @PostMapping(value = "/create")
     public String publishComments(@RequestBody Comments comments){
 
@@ -30,6 +35,14 @@ public class CommentsController {
         SimpleDateFormat currentD = new SimpleDateFormat("yyyy-MM-dd");
         String date = currentD.format(currentDate);
         comments.setDate(date);
+
+        //"yyMMddHHmmssZ" = 010704120856-0700
+        SimpleDateFormat timeZone = new SimpleDateFormat("yyMMddHHmmssZ");
+        String tZone = timeZone.format(currentDate);
+        comments.setDateTimeVal(tZone);
+        System.out.println(comments.getDateTimeVal());
+
+
 
 
 
@@ -51,7 +64,6 @@ public class CommentsController {
        // Comments insertedComment =
         commentsRepository.insert(comments);
         return "Comment ID: "+id+"  Comment: "+comment+"  Time: "+ time+"  Date: "+date;
-
 
     }
 

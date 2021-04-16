@@ -3,6 +3,7 @@ package com.BroArmy.NewsSeeker.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.annotation.Generated;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -13,12 +14,14 @@ public class Comments {
     private String comment;
     private String time;
     private String date;
-    //private boolean checkout = true;
+
+    private String dateTimeVal;
 
 
 
 
-    UserDetails uId = new UserDetails("112","sel","tanya");
+
+    UserDetails uId = new UserDetails("113","kira","tanya");
 
 
     public Comments() {
@@ -45,7 +48,6 @@ public class Comments {
     }
 
     public String getComment() {
-
         return comment;
     }
 
@@ -53,45 +55,34 @@ public class Comments {
         this.comment = comment;
     }
 
-
-
-
-
     public String getTime() {
-       //Date currentTimeDate = new Date();
-       //Gives a clock looking out put with an am or pm notation
-       //SimpleDateFormat currentTime = new SimpleDateFormat("h:mm a");
-       //time = currentTime.format(currentTimeDate);
+
        return time;
     }
 
     public void setTime(String time) {
-        //Date currentTimeDate = new Date();
-        //Gives a clock looking out put with an am or pm notation
-        //SimpleDateFormat currentTime = new SimpleDateFormat("h:mm a");
-        //time = currentTime.format(currentTimeDate);
-        this.time = time;
 
+        this.time = time;
 
     }
 
     public String getDate() {
-        //Date currentDate = new Date();
 
-        //Gives a normal date format
-        //SimpleDateFormat currentD = new SimpleDateFormat("yyyy-MM-dd");
-        //date = currentD.format(currentDate);
         return date;
     }
 
     public void setDate(String date) {
-        //Date currentDate = new Date();
 
-        //Gives a normal date format
-        //SimpleDateFormat currentD = new SimpleDateFormat("yyyy-MM-dd");
         this.date = date;
     }
 
+    public String getDateTimeVal() {
 
 
+        return dateTimeVal;
+    }
+
+    public void setDateTimeVal(String dateTimeVal) {
+        this.dateTimeVal = dateTimeVal;
+    }
 }
