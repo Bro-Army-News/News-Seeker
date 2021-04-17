@@ -11,9 +11,11 @@ import java.util.Date;
 public class Comments {
     @Id
     private String commentId;
+
     private String comment;
     private String time;
     private String date;
+    private String category;
 
     private String dateTimeVal;
 
@@ -21,29 +23,33 @@ public class Comments {
 
 
 
-    UserDetails uId = new UserDetails("113","kira","tanya");
+   // UserDetails uId = new UserDetails("113","kira","tanya");
 
 
     public Comments() {
         super();
     }
 
-    public Comments( String comment, String time) {
+    public Comments( String comment, String time ) {
         super();
+
         this.comment = comment;
         this.time = time;
+
 
     }
 
     public String getCommentId() {
 
-       String commentId = uId.getFirstName() +"."+ uId.getUserDetailsId();
+       //String commentId = uId.getFirstName() +"."+ uId.getUserDetailsId();
 
        return commentId;
 
     }
 
     public void setCommentId(String commentId) {
+        //String s= getCommentId();
+        //commentId = uId.getFirstName() +"."+ uId.getUserDetailsId()+"."+ s;
         this.commentId= commentId;
     }
 
@@ -84,5 +90,13 @@ public class Comments {
 
     public void setDateTimeVal(String dateTimeVal) {
         this.dateTimeVal = dateTimeVal;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 }

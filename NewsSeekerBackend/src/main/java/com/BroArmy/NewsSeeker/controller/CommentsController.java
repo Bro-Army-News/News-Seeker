@@ -1,69 +1,55 @@
 package com.BroArmy.NewsSeeker.controller;
 
 import com.BroArmy.NewsSeeker.model.Comments;
-import com.BroArmy.NewsSeeker.repository.CommentsRepository;
+import com.BroArmy.NewsSeeker.service.CommentsService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.mongodb.core.query.Criteria;
-import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.web.bind.annotation.*;
-import com.BroArmy.NewsSeeker.model.Comments.*;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import javax.websocket.server.PathParam;
 import java.util.List;
 
 @RestController
+//@RequestMapping("/comments")
 public class CommentsController {
 
     @Autowired
-    public CommentsRepository commentsRepository ;
+    public CommentsService commentsService;
 
     @GetMapping(value = "/all")
     public List<Comments> getAllComments(){
 
-        return commentsRepository.findByOrderByDateTimeValDesc();
+        return commentsService.getAllComments();
+    }
+
+
+
+    @GetMapping(value = "/type")
+    public List<Comments> getTypeComments(@RequestParam(name = "category") String category){
+        //String c = "covid";
+       // List <Comments> covid = null ;
+        //List<Comments> x = commentsRepository.findByOrderByDateTimeValDesc();
+        //for (Comments i : x){
+          //  if (i.getCategory().equalsIgnoreCase(c)){
+          //      covid.add(i);
+          //      break;
+          //  }
+
+        //}
+       // MongoTemplate mongoTemplate;
+        //Query query = new Query();
+       // query.addCriteria(Criteria.where("name").is("Eric"));
+        //List<Comments> users = mongoTemplate.find(query, Comments.class);
+
+        return commentsService.getTypeComments(category);
+
 
     }
 
     @PostMapping(value = "/create")
-    public String publishComments(@RequestBody Comments comments){
+    public String publishComments(@RequestBody Comments comments,@RequestParam(name = "category") String category){
 
 
-        Date currentDate = new Date();
-
-        //Gives a normal date format
-        SimpleDateFormat currentD = new SimpleDateFormat("yyyy-MM-dd");
-        String date = currentD.format(currentDate);
-        comments.setDate(date);
-
-        //"yyMMddHHmmssZ" = 010704120856-0700
-        SimpleDateFormat timeZone = new SimpleDateFormat("yyMMddHHmmssZ");
-        String tZone = timeZone.format(currentDate);
-        comments.setDateTimeVal(tZone);
-        System.out.println(comments.getDateTimeVal());
-
-
-
-
-
-
-        Date currentTimeDate = new Date();
-        //Gives a clock looking out put with an am or pm notation
-        SimpleDateFormat currentTime = new SimpleDateFormat("h:mm a");
-        String time = currentTime.format(currentTimeDate);
-        comments.setTime(time);
-        System.out.println(comments.getTime());
-
-
-
-        String id = comments.getCommentId();
-        String comment =comments.getComment();
-
-        //if u need to call it just uncomment the following comment
-
-       // Comments insertedComment =
-        commentsRepository.insert(comments);
-        return "Comment ID: "+id+"  Comment: "+comment+"  Time: "+ time+"  Date: "+date;
+        return commentsService.creatComments(comments,category);
 
     }
 
