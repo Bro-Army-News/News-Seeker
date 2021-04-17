@@ -27,20 +27,17 @@ const Login = () => {
                     <TouchableOpacity style={styles.submit} onPress = {goToHome}>
                         <Text style={styles.submitText}>LOG IN</Text>
                     </TouchableOpacity>
-                    <Text style={styles.links}>Forgot Password?</Text>
-                    <Text style={styles.links} onPress = {goToSignUp}>Not a Memeber yet? Sign Up Here</Text>
+                    
                     <View
                     style={{
                         borderBottomColor: 'black',
                         borderBottomWidth: 1,
-                        marginTop:15,
+                        marginTop:45,
+                        marginBottom:25,
                     }}/>
-                    <TouchableOpacity style={[styles.submit, styles.submitColor1]}>
-                        <Text style={styles.submitText}>SIGN UP WITH EMAIL</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={[styles.submit, styles.submitColor2]}>
-                        <Text style={styles.submitText}>SIGN UP WITH FACEBOOK</Text>
-                    </TouchableOpacity>
+
+                    <Text style={styles.links}>Forgot Password?</Text>
+                    <Text style={styles.links} onPress = {goToSignUp}>Not a Memeber yet? Sign Up Here</Text>
                 </ScrollView >
             </View>
         </View>
