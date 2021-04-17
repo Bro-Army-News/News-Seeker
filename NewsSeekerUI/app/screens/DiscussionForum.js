@@ -68,5 +68,8 @@ const styles = StyleSheet.create({
         backgroundColor: '#D9E4ED',
         fontSize: 24,
     },
+    bodyContainer:{
+        marginBottom:110,
+    }
 })
 export default DiscussionForum;
