@@ -3,8 +3,7 @@ import { createMaterialBottomTabNavigator } from '@react-navigation/material-bot
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import HomeScreen from './screens/HomeScreen';
 import Search from './screens/Search';
-import DisscussionForum from './screens/DisscussionForum';
-import SettingsMain from './screens/SettingsMain';
+import DiscussionForum from './screens/DiscussionForum';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -37,21 +36,11 @@ const MyTabs = () => (
             />
             <Tab.Screen
                 name="DiscussionForum"
-                component={DisscussionForum}
+                component={DiscussionForum}
                 options={{
                 tabBarLabel: 'Forum',
                 tabBarIcon: ({ color }) => (
                     <MaterialCommunityIcons name="forum" color={color} size={26} />
-                ),
-                }}
-            />
-            <Tab.Screen
-                name="Settings"
-                component={SettingsMain}
-                options={{
-                tabBarLabel: 'Settings',
-                tabBarIcon: ({ color }) => (
-                    <MaterialCommunityIcons name="cog-outline" color={color} size={26} />
                 ),
                 }}
             />
