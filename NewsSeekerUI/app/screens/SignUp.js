@@ -41,7 +41,7 @@ const SignUp = () => {
                     }}/>
 
                     <Text style={styles.links}>Forgot Password?</Text>
-                    <Text style={styles.links} onPress = {goToSignUp}>Not a Memeber yet? Sign Up Here</Text>
+                    <Text style={styles.links} onPress = {goToLogin}>Already a Memeber. Log in Here</Text>
                 </ScrollView>    
             </SafeAreaView>
         </View>
