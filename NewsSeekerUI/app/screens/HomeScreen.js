@@ -11,11 +11,7 @@ import {
 const HomeScreen = ({ children, isSearchFocused }) => {
   const keyboardShouldPersistTaps = isSearchFocused ? "always" : "never";
   return (
-    <ScrollView
-      keyboardShouldPersistTaps={keyboardShouldPersistTaps}
-      scrollEnabled={!isSearchFocused}
-      style={styles.container}
-    >
+    <View style={styles.container}>
       <View style={styles.header}>
         <Image
           style={styles.headerLogo}
@@ -23,8 +19,13 @@ const HomeScreen = ({ children, isSearchFocused }) => {
         />
         <Text style={styles.headerText}>News Seeker</Text>
       </View>
-      {children}
-    </ScrollView>
+      <ScrollView 
+      keyboardShouldPersistTaps={keyboardShouldPersistTaps}
+      scrollEnabled={!isSearchFocused}
+      style={styles.cards}>
+        {children}
+      </ScrollView>
+    </View>
   );
 };
 
@@ -49,11 +50,12 @@ const styles = StyleSheet.create({
     left: 140,
   },
   container: {
-    marginTop: StatusBar.currentHeight,
-    paddingHorizontal: 15,
     backgroundColor: "#f7f3f3",
     flex: 1,
   },
+  cards:{
+    marginHorizontal:10,
+  }
 });
 
 export default HomeScreen;

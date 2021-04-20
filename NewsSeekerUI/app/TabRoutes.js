@@ -1,7 +1,7 @@
 import React from "react";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
-import HomeScreen from "./screens/HomeScreen";
+import MainHome from "./screens/MainHome";
 import Search from "./screens/Search";
 import DiscussionForum from "./screens/DiscussionForum";
 
@@ -9,13 +9,13 @@ const Tab = createMaterialBottomTabNavigator();
 
 const MyTabs = () => (
   <Tab.Navigator
-    initialRouteName="Home"
+    initialRouteName="MainHome"
     activeColor="green"
     barStyle={{ backgroundColor: "#e7e6e1" }}
   >
     <Tab.Screen
-      name="Home"
-      component={HomeScreen}
+      name="MainHome"
+      component={MainHome}
       options={{
         tabBarLabel: "Home",
         tabBarIcon: ({ color }) => (
