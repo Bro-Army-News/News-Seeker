@@ -1,10 +1,10 @@
-package com.broarmy.NewsSeeker;
+package com.BroArmy.NewsSeeker;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class NewsSeekerApplicationTests {
+class DiscussionForumApplicationTests {
 
 	@Test
 	void contextLoads() {

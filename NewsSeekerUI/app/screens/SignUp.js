@@ -19,30 +19,29 @@ const SignUp = () => {
                     <TextInput 
                     placeholder="UserName"
                     style={styles.input}/>
-                    <TextInput 
+                    {/* <TextInput 
                     placeholder="Email"
-                    style={styles.input}/>
-                    <TextInput 
-                    placeholder="Date of Birth"
-                    style={styles.input}/>
-                    <TextInput 
-                    placeholder="Country"
-                    style={styles.input}/>
+                    style={styles.input}/> */}
                     <TextInput 
                     placeholder="Password"
                     style={styles.input}/>
-                    <TextInput 
+                    {/* <TextInput 
                     placeholder="Re-Enter Password"
-                    style={styles.input}/>
+                    style={styles.input}/> */}
                     <TouchableOpacity style={styles.submit} onPress = {goToLogin}>
                         <Text style={styles.submitText}>SIGN UP HERE</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={[styles.submit, styles.submitColor1]}>
-                        <Text style={styles.submitText}>SIGN UP WITH EMAIL</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={[styles.submit, styles.submitColor2]}>
-                        <Text style={styles.submitText}>SIGN UP WITH FACEBOOK</Text>
-                    </TouchableOpacity>
+                
+                    <View
+                    style={{
+                        borderBottomColor: 'black',
+                        borderBottomWidth: 1,
+                        marginTop:45,
+                        marginBottom:25,
+                    }}/>
+
+                    <Text style={styles.links}>Forgot Password?</Text>
+                    <Text style={styles.links} onPress = {goToLogin}>Already a Memeber. Log in Here</Text>
                 </ScrollView>    
             </SafeAreaView>
         </View>
@@ -99,7 +98,7 @@ const styles = StyleSheet.create({
         borderColor:'black',
         borderWidth:2,
         padding:5,
-        marginBottom:40,
+        marginBottom:30,
         marginRight:'2%',
     },
     submit:{
@@ -109,14 +108,6 @@ const styles = StyleSheet.create({
         borderRadius:30,
         marginRight:'10%',
         backgroundColor:'mediumseagreen',
-    },
-    submitColor1:{
-        marginTop:25,
-        backgroundColor:'tomato',
-    },
-    submitColor2:{
-        marginTop:25,
-        backgroundColor:'cornflowerblue',
     },
     submitText:{
         color:'#fff',

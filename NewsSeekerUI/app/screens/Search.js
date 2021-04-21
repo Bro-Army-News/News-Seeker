@@ -14,6 +14,7 @@ class Search extends Component{
         this.state = {
             searchContent:true,
             loading: false,
+            loader:false,
             searchText: '',
             response:''
         }
@@ -31,9 +32,13 @@ class Search extends Component{
     //     }).catch(error=>console.log("err",error))
     // }
 
+    
+
     //Passing the value to the ML model and receiving the result from it.
     handleClick = (e) =>{
-        console.log(this.state.searchText)
+        console.log(this.state.searchText) 
+        this.setState({loader: true});
+
         const search = this.state.searchText
         fetch("http://10.0.2.2:8001/api/v1",{
             method:'POST',
@@ -45,11 +50,19 @@ class Search extends Component{
         .then(data => {
             console.log(data);
             this.setState({
-                response:data.result
+                response:data.result,
+                loader: false
+               
             })
+           
+            setTimeout(() => {
+                this.setState({response: '', searchText:''});
+            }, 10000)
         }).catch(error=>console.log("err",error))
     }
 
+
+  
     render(){
         if(this.state.loading){
             return( 
@@ -74,6 +87,7 @@ class Search extends Component{
                         <TextInput style={styles.searchInput}
                         multiline={true}
                         // numberOfLines={4}
+                        value={this.state.searchText}
                         onChangeText={(text) => this.setState({searchText:text})}
                         placeholder="Paste Your News Arcticle Here....."/>
                     </View>
@@ -83,11 +97,13 @@ class Search extends Component{
                         </TouchableOpacity>
                     </View>
                     <View>
-                        {/* <View style={styles.searchLoader}> 
+                       { this.state.loader ?  <View style={styles.searchLoader}  > 
                             <ActivityIndicator size="large" color="#0c9"/>
-                        </View> */}
+                        </View> : null
+                        }
+
                         {
-                            this.state.response ? <Text style={styles.fakeResultUpdated}>{this.state.response}</Text>: 
+                            this.state.response == 'Fake News' ? <Text style={styles.fakeResultUpdated}>{this.state.response}</Text>: 
                             <Text style={styles.realResultUpdated}>{this.state.response}</Text>
                         }
                     </View>
@@ -187,3 +203,4 @@ const styles = StyleSheet.create({
 })
 
 export default Search;
+
