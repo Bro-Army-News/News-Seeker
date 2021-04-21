@@ -19,9 +19,9 @@ const SignUp = () => {
                     <TextInput 
                     placeholder="UserName"
                     style={styles.input}/>
-                    <TextInput 
+                    {/* <TextInput 
                     placeholder="Email"
-                    style={styles.input}/>
+                    style={styles.input}/> */}
                     <TextInput 
                     placeholder="Password"
                     style={styles.input}/>
