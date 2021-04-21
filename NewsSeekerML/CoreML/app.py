@@ -55,7 +55,7 @@ def api():
     df["text"] = df["text"].apply(drop_text)
 
     x = df["text"]
-    y = df["class"]
+    y = df["className"]
 
     x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.25)
 

@@ -46,7 +46,8 @@ class Search extends Component{
                 'Content-Type': 'application/json'
             },
             body:JSON.stringify({value:search})
-        }).then((response)=>response.json())
+        }).then((response)=>response.
+json())
         .then(data => {
             console.log(data);
             this.setState({

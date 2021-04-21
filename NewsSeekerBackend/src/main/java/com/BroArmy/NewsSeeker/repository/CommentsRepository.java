@@ -11,5 +11,5 @@ public interface CommentsRepository extends MongoRepository<Comments,String> {
 
    List<Comments> findByOrderByDateTimeValDesc();
    List<Comments> findByCategory(String category);
-   List<Comments> findByOrderByTimeDesc() ;
+   List<Comments> findByOrderByTimeDesc();
 }
