@@ -33,7 +33,6 @@ public class TweetServiceImpl implements TweetService {
     @Autowired
     Environment environment;
 
-
     @Override
     public void saveTweet(TweetDto tweetDto) {
         String response = null;
@@ -55,14 +54,12 @@ public class TweetServiceImpl implements TweetService {
                         tweet.setTweetId(tweetId);
                         tweet.setText(text);
                         tweet.setUserId(id);
-                        tweet.setClassName("1");
+                        tweet.setClassName(1);
                         tweetRepository.save(tweet);
                         System.out.println("tweet saved = "+tweetId);
                     }else {
                         System.out.println("tweet exist = "+tweetObj.getTweetId());
                     }
-
-
 
                 }
 
@@ -106,6 +103,8 @@ public class TweetServiceImpl implements TweetService {
         if (null != entity) {
             tweetResponse = EntityUtils.toString(entity, "UTF-8");
         }
+
         return tweetResponse;
+
     }
 }

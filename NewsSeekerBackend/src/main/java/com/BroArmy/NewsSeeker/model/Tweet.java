@@ -3,13 +3,13 @@ package com.BroArmy.NewsSeeker.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "tweets")
+@Document(collection = "MergedNews")
 public class Tweet {
     @Id
     private String id;
 
     private String text;
-    private String className;
+    private int className;
     private String tweetId;
     private String userId;
 
@@ -46,11 +46,11 @@ public class Tweet {
         this.text = text;
     }
 
-    public String getClassName() {
+    public int getClassName() {
         return className;
     }
 
-    public void setClassName(String className) {
+    public void setClassName(int className) {
         this.className = className;
     }
 
