@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
 import { View,StyleSheet,Text,FlatList,Image,TouchableOpacity } from 'react-native';
 import { Actions } from 'react-native-router-flux';
+import axios from 'axios';
 
 const DiscussionForum = () => {
     const gotoDiscussionForumChat = ()=>{
         Actions.discussionForumChat()
     }
+
     const [newsTitle] = useState([
-        { name: 'News Title 1', id: '1' },
-        { name: 'News Title 2', id: '2' },
-        { name: 'News Title 3', id: '3' },
-        { name: 'News Title 4', id: '4' },
-        { name: 'News Title 5', id: '5' },
-        { name: 'News Title 6', id: '6' },
-        { name: 'News Title 7', id: '7' },
-        { name: 'News Title 8', id: '8' },
+        { name: 'World', id: '1' },
+        { name: 'Business', id: '2' },
+        { name: 'Health', id: '3' },
+        { name: 'Politics', id: '4' },
+        { name: 'Science', id: '5' },
+        { name: 'Sports', id: '6' },
       ]);
 
     return (
@@ -64,9 +64,11 @@ const styles = StyleSheet.create({
         flex: 1,
         marginHorizontal: 15,
         marginTop: 10,
-        padding: 15,
+        marginBottom:15,
+        padding: 25,
         backgroundColor: '#D9E4ED',
         fontSize: 24,
+        color:'black',
     },
     bodyContainer:{
         marginBottom:110,
