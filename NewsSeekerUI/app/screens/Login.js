@@ -1,47 +1,65 @@
-import React from 'react';
-import { Image, View, StyleSheet,Text, TextInput, TouchableOpacity, ScrollView} from 'react-native';
-import { Actions } from 'react-native-router-flux';
+import React, {Component} from 'react';
+import {View, StyleSheet, ScrollView, TextInput, Image, Text, TouchableOpacity, SafeAreaView,ActivityIndicator} from 'react-native';
+import auth from '@react-native-firebase/auth';
+import Toast from 'react-native-simple-toast';
 
-const Login = () => {
-    const goToSignUp = () => {
-        Actions.signup()
+class Login extends Component {
+    constructor(props){
+        super(props)
+        this.state ={
+            isSuccessfull: false
+        }
+        
     }
-    const goToHome = () => {
-        Actions.home()
-    }
-    return (
-        <View style={styles.body}>
-            <View style={styles.header}>
-                <Image style={styles.headerLogo} source={require('../assets/Logo.jpg')}/>
-                <Text style={styles.headerText}>News Seeker</Text>
-            </View>
-            <View style={styles.container}>
-                <Text style={styles.containerHeader}>LOG IN</Text>
-                <ScrollView  style={styles.containerLogin}>
-                    <TextInput 
-                    placeholder="UserName"
-                    style={styles.input}/>
-                    <TextInput 
-                    placeholder="Password"
-                    style={styles.input}/>
-                    <TouchableOpacity style={styles.submit} onPress = {goToHome}>
-                        <Text style={styles.submitText}>LOG IN</Text>
-                    </TouchableOpacity>
-                    
-                    <View
-                    style={{
-                        borderBottomColor: 'black',
-                        borderBottomWidth: 1,
-                        marginTop:45,
-                        marginBottom:25,
-                    }}/>
 
-                    <Text style={styles.links}>Forgot Password?</Text>
-                    <Text style={styles.links} onPress = {goToSignUp}>Not a Memeber yet? Sign Up Here</Text>
-                </ScrollView >
+    state = {
+        email: '',
+        password: ''
+    }
+
+    handleLogin = () => {
+        const { email, password } = this.state
+
+        auth()
+            .signInWithEmailAndPassword(email, password)
+            .then(() => this.props.navigation.navigate('home'))
+            .catch(error => console.log(error))
+    }
+    
+    
+    render() {
+        return (
+            <View style={styles.body}>
+                <View style={styles.header}>
+                    <Image style={styles.headerLogo} source={require('../assets/Logo.jpg')}/>
+                    <Text style={styles.headerText}>News Seeker</Text>
+                </View>
+                <SafeAreaView style={styles.container}>
+                    <Text style={styles.containerHeader}>Log In</Text>
+                        <ScrollView style={styles.ScrollView}>
+                        
+                        <TextInput 
+                            value={this.state.email}
+                            onChangeText={email => this.setState({ email })}
+                            placeholder="Email"
+                            style={styles.input}/>
+
+                            <TextInput 
+                            value={this.state.password}
+                            onChangeText={password => this.setState({ password })}
+                            placeholder="Password"
+                            style={styles.input}
+                            secureTextEntry={true}/>
+                            
+                            <TouchableOpacity style={styles.submit} onPress={this.handleLogin}>
+                                <Text style={styles.submitText}>LOG IN</Text>
+                            </TouchableOpacity>
+                            
+                        </ScrollView>    
+                </SafeAreaView>
             </View>
-        </View>
-    );
+        );
+    }
 }
 
 const styles = StyleSheet.create({
@@ -67,7 +85,6 @@ const styles = StyleSheet.create({
         fontSize:40,
         top:2,
         left:20,
-        marginBottom:'5%',
     },
     container:{
         width:'100%',
@@ -79,28 +96,33 @@ const styles = StyleSheet.create({
     containerHeader:{
         textAlign:'center',
         marginTop:20,
+        marginBottom:20,
         fontWeight: 'bold',
         fontSize:28,
         color:'green',
     },
-    containerLogin:{
+
+    ScrollView:{
         margin:'7%',
     },
+        
     input:{
         borderColor:'black',
         borderWidth:2,
         padding:5,
-        marginBottom:'15%',
+        marginBottom:40,
+        marginRight:'2%',
     },
     submit:{
         marginHorizontal:30,
         paddingTop:10,
         paddingBottom:10,
         borderRadius:30,
+        marginRight:'10%',
         backgroundColor:'mediumseagreen',
     },
     submitColor1:{
-        marginTop:35,
+        marginTop:25,
         backgroundColor:'tomato',
     },
     submitColor2:{

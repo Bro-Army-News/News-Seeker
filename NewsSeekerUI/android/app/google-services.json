@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "282019349524",
+    "project_id": "newsseeker-2021",
+    "storage_bucket": "newsseeker-2021.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:282019349524:android:fc140228455feb46241301",
+        "android_client_info": {
+          "package_name": "android.newsseeker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "282019349524-k622lqfkeb1ctmuntjc5q1951e4nk8d1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7D_PhW44ZfuE5DjJX7Nqy7GUeyVzGG_g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "282019349524-k622lqfkeb1ctmuntjc5q1951e4nk8d1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
