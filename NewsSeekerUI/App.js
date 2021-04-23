@@ -4,17 +4,17 @@ import Routes from './app/Routes.js'
 import TabRoutes from './app/TabRoutes';
 import { NavigationContainer } from '@react-navigation/native';
 
-class reactNewsApp extends Component {
-  render() {
-     return (
-        <NavigationContainer>
+
+function reactNewsApp(props) {
+   return (
+      <NavigationContainer>
             <Routes >
                <TabRoutes/>
             </Routes>
         </NavigationContainer>
-     )
-  }
+   );
 }
 
 export default reactNewsApp
+
 AppRegistry.registerComponent('reactNewsApp', () => reactNewsApp)
