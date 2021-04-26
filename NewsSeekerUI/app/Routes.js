@@ -4,6 +4,8 @@ import WelcomeScreen from './screens/WelcomeScreen';
 import SignUp from './screens/SignUp.js';
 import Login from './screens/Login.js';
 import Tabs from './TabRoutes';
+import DiscussionForumChat from './screens/DiscussionForumChat';
+
 
 const Routes = () => (
    <Router >
@@ -12,6 +14,7 @@ const Routes = () => (
          <Scene key = "signup" component = {SignUp} title = "SignUp" headerShown = {false}/>
          <Scene key = "login" component = {Login} title = "Login" headerShown = {false}/>
          <Scene key = "home" component = {Tabs} title = "NewsSeeker" headerShown = {false}/>
+         <Scene key = "discussionForumChat" component = {DiscussionForumChat} title = "Discussion Forum"/>
       </Scene>
    </Router>
 )

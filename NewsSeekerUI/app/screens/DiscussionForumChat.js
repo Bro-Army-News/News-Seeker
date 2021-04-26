@@ -1,44 +1,40 @@
-import React, { Component } from "react";
-import { FlatList, StyleSheet, Text, View } from "react-native";
-import axios from 'axios';
+import React, { useState, useEffect, Component } from "react";
+import {View,StyleSheet,ActivityIndicator,Text} from "react-native";
+import { GiftedChat,Bubble,Send,SystemMessage } from 'react-native-gifted-chat';
+import { IconButton } from 'react-native-paper';
+import auth from '@react-native-firebase/auth';
+import firestore from '@react-native-firebase/firestore';
 
-const api = axios.create({
-  baseURL: 'http://10.0.2.2:6039/'
-})
+class DiscussionForumChat extends Component {
+  // state = {
+  //   user: {
+  //     name: ""
+  //   }
+  // }
+  // constructor(props){
+  //   super(props);
+  //   this.getUser();
+  //   this.subscriber = firestore.collection("users").
+  //   doc('6Ff3IDk4VhUEP8ToPpyN').onSnapshot(doc => {
+  //     this.setState({
+  //       user:{
+  //         name:doc.data().name
+  //       }
+  //     })
+  //   })
+  // }
 
-export default class App extends Component {
-  state = {
-    comments: []
-  };
-
-  constructor(){
-    super();
-    api.get('/type?category=na').then(res => {
-      console.log(res.data)
-      this.setState({comments: res.data})
-    })
-  }
+  // getUser = async () => {
+  //   const userDocument = await firestore().collection("users").
+  //   doc('6Ff3IDk4VhUEP8ToPpyN').get()
+  //   console.log(userDocument)
+  // }
 
   render() {
     return (
-      <View style={styles.container}>
-        {this.state.comments.map(com =><Text>{com}</Text>)}
-        <Text>{JSON.stringify(this.state.data)}</Text>
-      </View>
+      <GiftedChat/>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    marginTop: 15,
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "yellow"
-  },
-  text:{
-    color: 'black',
-    fontSize: 24,
-  }
-});
+export default DiscussionForumChat;
